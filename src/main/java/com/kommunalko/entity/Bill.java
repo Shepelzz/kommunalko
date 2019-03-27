@@ -6,7 +6,7 @@ public class Bill extends AbstractEntity{
 
     private Year year;
     private Month month;
-    private Estate estate;
+    private Home estate;
     private Date dateCreated;
 
 
