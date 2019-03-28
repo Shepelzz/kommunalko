@@ -1,4 +1,6 @@
 package com.kommunalko.dao;
 
-public interface UserDAO {
+import com.kommunalko.entity.User;
+
+public interface UserDAO extends AbstractDAO<User> {
 }

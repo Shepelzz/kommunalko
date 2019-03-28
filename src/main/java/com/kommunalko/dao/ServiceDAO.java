@@ -1,4 +1,6 @@
 package com.kommunalko.dao;
 
-public interface ServiceDAO {
+import com.kommunalko.entity.Service;
+
+public interface ServiceDAO extends AbstractDAO<Service>{
 }

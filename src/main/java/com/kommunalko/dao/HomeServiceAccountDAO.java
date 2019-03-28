@@ -1,4 +1,6 @@
 package com.kommunalko.dao;
 
-public interface HomeServiceAccountDAO {
+import com.kommunalko.entity.HomeServiceAccount;
+
+public interface HomeServiceAccountDAO extends AbstractDAO<HomeServiceAccount> {
 }

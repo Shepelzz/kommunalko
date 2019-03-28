@@ -1,4 +1,7 @@
 package com.kommunalko.dao.impl;
 
-public class ServiceDAOImpl {
+import com.kommunalko.dao.ServiceDAO;
+import com.kommunalko.entity.Service;
+
+public class ServiceDAOImpl  extends AbstractDAOImpl<Service> implements ServiceDAO {
 }

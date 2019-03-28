@@ -1,4 +1,6 @@
 package com.kommunalko.dao;
 
-public interface PaymentDAO {
+import com.kommunalko.entity.Payment;
+
+public interface PaymentDAO extends AbstractDAO<Payment> {
 }
