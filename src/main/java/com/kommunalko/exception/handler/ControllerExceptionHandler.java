@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 
-@ControllerAdvice(basePackages = "com.findme.controller")
+@ControllerAdvice(basePackages = "com.kommunalko.controller")
 public class ControllerExceptionHandler {
 
     @ExceptionHandler(value = BadRequestException.class)

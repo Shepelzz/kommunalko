@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kommunalko</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="../static/css/theme.css" type="text/css" th:href="@{/css/theme.css}"/>
+    <link rel="stylesheet" href="../static/css/main.css" type="text/css" th:href="@{/css/main.css}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="w3-display-middle w3-round w3-white w3-padding" style="width: 400px;"><!--w3-card-->
+    <div class="w3-container">
+        <h3 class="w3-opacity w3-center">Authorization</h3>
+        <hr>
+        <div class="w3-container input-form w3-padding">
+            <form id="login">
+                <h6 class="w3-text-theme">Email: </h6>
+                <input class="w3-border w3-padding" type="text" name="email" style="width: 100%; min-width: 150px" required>
+                <h6 class="w3-text-theme">Password: </h6>
+                <input class="w3-border w3-padding" type="password" name="password" style="width: 100%; min-width: 150px" required>
+                <hr>
+                <button type="submit" class="w3-button w3-theme" style="width: 40%; min-width: 100px"><i class="fa fa-pencil-alt"></i>  Login    </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</body>
+<script>
+
+    $("#login").submit(function login() {
+        event.preventDefault();
+        debugger;
+        $.ajax({
+            type: "POST",
+            url: "/login",
+            data: $('#login').serialize(),
+            success:function success() {
+                window.location.reload(true);
+            },
+            error: function(xhr) {
+                alert(xhr.responseText);
+            }
+        });
+    });
+
+</script>
+</html>

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.servlet.http.HttpServletRequest;
 
-@RestControllerAdvice(basePackages = "com.findme.api")
+@RestControllerAdvice(basePackages = "com.kommunalko.api")
 public class RestControllerExceptionHandler {
 
     @ExceptionHandler(value = BadRequestException.class)
