@@ -1,18 +1,13 @@
-SELECT  h.ADDRESS AS home_address,
-        b.DATE AS date,
-        s.NAME AS service,
-        i.NUMBER AS number,
-        pmt.VALUE AS val,
-        pmt.TARIFF AS tariff
-FROM    PAYMENT pmt
-  JOIN SERVICE_BY_INVOICE sbi ON pmt.SERVICE_BY_INVOICE_ID = sbi.ID
-  JOIN BILL b ON sbi.BILL_ID = b.ID
-  JOIN SERVICE s ON sbi.SERVICE_ID = s.ID
-  JOIN INVOICE i ON sbi.INVOICE_ID = i.ID
-  JOIN HOME h ON b.HOME_ID = h.ID
-  JOIN USERS u ON h.USER_ID = u.ID
-WHERE b.DATE = 201903
--- GROUP BY h.ADDRESS,
---         s.NAME,
---         i.NUMBER
-ORDER BY s.NAME, i.NUMBER
+SELECT	dt.ID AS date_id,
+        s.NAME AS services_name,
+        hsa.ACCOUNT AS account,
+        p.INVOICE AS inv,
+        p.TARIFF AS tariff,
+        p.DATE_PAID
+FROM	PAYMENTS p
+        JOIN DATE dt ON p.DATE_ID = dt.id
+        JOIN HOME_SERVICES_ACCOUNTS hsa ON p.HOME_SERVICES_ACCOUNTS_ID = hsa.id
+        JOIN HOME_SERVICES hs ON hsa.HOME_SERVICES_ID = hs.id
+        JOIN HOME h ON hs.HOME_ID = h.id
+        JOIN SERVICES s ON hs.SERVICE_ID = s.id
+        JOIN USERS u ON h.USER_ID = u.id

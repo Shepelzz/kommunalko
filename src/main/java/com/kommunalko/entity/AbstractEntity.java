@@ -13,8 +13,8 @@ public class AbstractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
-    private Long id;
+    private int id;
 
-    @Column(name = "STATUS")
-    private Integer status;
+    @Column(name = "ROW_STATUS")
+    private int rowStatus;
 }

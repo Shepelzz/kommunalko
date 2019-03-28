@@ -1,74 +1,53 @@
-create table USERS
+CREATE TABLE DATE
 (
-	ID bigint not null
-		primary key,
-	LAST_NAME varchar(50),
-	FIRST_NAME varchar(50)
-)
-go
-
-create table HOME
+	ID INT,
+	YEAR_ID INT,
+	MONTH_ID INT
+);
+CREATE TABLE HOME
 (
-	ID bigint identity
-		primary key,
-	USER_ID bigint,
-	ADDRESS varchar(150)
-)
-go
-
-create table BILL
+	ID INT PRIMARY KEY NOT NULL IDENTITY,
+	USER_ID INT,
+	ADDRES VARCHAR(50),
+	ROW_STATUS INT DEFAULT 0 NOT NULL
+);
+CREATE TABLE HOME_SERVICES
 (
-	ID bigint identity
-		primary key,
-	HOME_ID bigint,
-	DATE int
-)
-go
-
-create table SERVICE
+	ID INT PRIMARY KEY NOT NULL IDENTITY,
+	HOME_ID INT,
+	SERVICE_ID INT,
+	ROW_STATUS INT DEFAULT 0 NOT NULL
+);
+CREATE TABLE HOME_SERVICES_ACCOUNTS
 (
-	ID bigint identity
-		primary key,
-	NAME varchar(50)
-)
-go
-
-create table INVOICE
+	ID INT PRIMARY KEY NOT NULL IDENTITY,
+	HOME_SERVICES_ID INT,
+	ACCOUNT VARCHAR(20),
+	ROW_STATUS INT DEFAULT 0 NOT NULL
+);
+CREATE TABLE PAYMENTS
 (
-	ID bigint identity
-		primary key,
-	HOME_ID bigint,
-	NUMBER varchar(20)
-)
-go
-
-create table SERVICE_BY_INVOICE
+	ID INT PRIMARY KEY NOT NULL IDENTITY,
+	HOME_SERVICES_ACCOUNTS_ID INT,
+	DATE_ID INT,
+	TARIFF FLOAT,
+	INVOICE FLOAT,
+	DATE_PAID DATETIME,
+	ACTIVE_TARIFF BIT DEFAULT 0 NOT NULL,
+	ROW_STATUS INT DEFAULT 0 NOT NULL
+);
+CREATE TABLE SERVICES
 (
-	ID bigint identity
-		primary key,
-	SERVICE_ID bigint,
-	INVOICE_ID bigint,
-	BILL_ID bigint
-)
-go
-
-create table PAYMENT
+	ID INT PRIMARY KEY NOT NULL IDENTITY,
+	NAME VARCHAR(100),
+	ROW_STATUS INT DEFAULT 0 NOT NULL
+);
+CREATE TABLE USERS
 (
-	ID bigint identity
-		primary key,
-	SERVICE_BY_INVOICE_ID bigint,
-	VALUE float,
-	TARIFF float,
-	PAID bit default 0
-)
-go
-
-create table COUNTER
-(
-	ID bigint identity
-		primary key,
-	NAME varchar(50),
-	SERIAL_NUMBER varchar(20)
-)
-go
-
+	ID INT PRIMARY KEY NOT NULL IDENTITY,
+	LAST_NAME VARCHAR(50),
+	FIRST_NAME VARCHAR(50),
+	EMAIL VARCHAR(50),
+	PASSWORD VARCHAR(20),
+	ROW_STATUS INT DEFAULT 0 NOT NULL
+);

@@ -2,7 +2,7 @@ package com.kommunalko.entity;
 
 public class Home extends AbstractEntity{
 
-    private User ownerUser;
+    private User user;
     private String address;
 
 
