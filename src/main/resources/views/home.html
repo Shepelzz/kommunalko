@@ -3,13 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <title>home</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="../static/css/theme.css" type="text/css" th:href="@{/css/theme.css}"/>
+    <link rel="stylesheet" href="../static/css/main.css" type="text/css" th:href="@{/css/main.css}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
-<body>
+
+<style>
+    .container {
+        /*min-width: 800px;*/
+        /*max-height: 800px;*/
+        overflow-x: scroll;
+        position: relative;
+    }
+
+    /*table {*/
+        /*position: relative;*/
+        /*border-collapse: collapse;*/
+    /*}*/
+
+    /*td, th {*/
+        /*padding: 0.25em;*/
+    /*}*/
+
+    /*thead th {*/
+        /*width: 200px;*/
+        /*position: -webkit-sticky; !* for Safari *!*/
+        /*position: sticky;*/
+        /*top: 0;*/
+        /*background: #000;*/
+        /*color: #FFF;*/
+        /*border: #d6d6d6 1px solid;*/
+    /*}*/
+
+    /*thead th:first-child {*/
+        /*left: 0;*/
+        /*z-index: 1;*/
+    /*}*/
+
+    tbody th {
+        position: sticky;
+        left: 0;
+        background: #FFF;
+        border-right: 1px solid #CCC;
+    }
+
+    .tg  {
+        border-collapse:collapse;
+        border-spacing:0;
+        border-color:#ccc;
+    }
+    .tg td{
+        font-family:Arial, sans-serif;
+        font-size:14px;
+        padding:10px 5px;
+        border-style:solid;
+        border-width:1px;
+        overflow:hidden;
+        word-break:normal;
+        border-color:#ccc;
+        color:#333;
+        background-color:#fff;
+    }
+    .tg th{
+        font-family:Arial, sans-serif;
+        font-size:14px;
+        font-weight:normal;
+        padding:5px 5px;
+        border-style:solid;
+        border-width:1px;
+        overflow:hidden;
+        word-break:normal;
+        border-color:#ccc;
+        color:#333;
+        background-color:#f0f0f0;
+    }
+    .tg .tg-s268{
+        text-align:left;
+    }
+    .tg .tg-0lax{
+        text-align:center;
+        vertical-align:top
+    }
+
+
+    .zui-sticky-col {
+        border-left: solid 1px #DDEFEF;
+        border-right: solid 1px #DDEFEF;
+        left: 0;
+        position: absolute;
+        top: auto;
+        width: 120px;
+    }
+
+</style>
+
+<body class="body-c2">
 
 i ma home
 
 <br>
 <a href="/" th:href="@{/logout}" title="Logout">logout</a>
+
+<div class="w3-top">
+    <div class="w3-theme-d5 w3-left-align w3-large" style="height: 51px;">
+        <a href="/" th:href="@{/}" class="main-logo w3-bar-item w3-left w3-padding-large">
+            Home
+        </a>
+        <span th:if="${session.loggedUserId!=null}">
+                <a href="/" th:href="@{/feed}" class="w3-bar-item w3-button w3-padding-large w3-hover-white" title="News">
+                    <i class="fa fa-rss-square"></i>
+                </a>
+                <span class="w3-bar-item w3-hide-small w3-right w3-padding-large" th:text="${session.loggedUserId != null ? session.loggedUserName : ''}">User Name</span>
+                <a href="#" th:href="@{/logout}" class="w3-bar-item w3-right w3-padding-large w3-hover-white" title="Logout">
+                    <i class="fa fa-sign-out-alt"></i>
+                </a>
+            </span>
+        <a th:if="${session.loggedUserId==null}" href="#" th:href="@{/}" class="w3-bar-item w3-right w3-padding-large w3-hover-white" title="Login">
+            <i class="fa fa-sign-in-alt"></i>
+        </a>
+    </div>
+</div>
+
+<div style="width: 100%; min-width: 1250px; margin-top: 7px">
+    <div style="width: 20%; min-width: 250px; height: 100%; bottom: 0; float:left; padding: 30px 10px 10px 10px">
+        <div style="border: #3a8b40 1px solid; padding: 5px">
+            df
+        </div>
+    </div>
+    <div style="width: 80%; min-width: 800px; float:right; padding: 30px 30px 10px 30px">
+        <div class="container">
+            <div class="tg-wrap">
+                <table class="tg" style="table-layout: fixed; width: 352px">
+                    <colgroup>
+                        <col style="width: 230px">
+                        <col style="width: 200px">
+                        <col style="width: 100px">
+                        <col style="width: 80px">
+                        <col style="width: 100px">
+                        <col style="width: 100px">
+                        <col style="width: 80px">
+                        <col style="width: 100px">
+                        <col style="width: 100px">
+                        <col style="width: 80px">
+                        <col style="width: 100px">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th class="tg-0lax" colspan="2" rowspan="2"></th>
+                            <th class="tg-0lax" colspan="3">2019-01</th>
+                            <th class="tg-0lax" colspan="3">2019-02</th>
+                            <th class="tg-0lax" colspan="3">2019-03</th>
+                        </tr>
+                        <tr>
+                            <th class="tg-0lax">План</th>
+                            <th class="tg-0lax">Тариф</th>
+                            <th class="tg-0lax">Факт</th>
+                            <th class="tg-0lax">План</th>
+                            <th class="tg-0lax">Тариф</th>
+                            <th class="tg-0lax">Факт</th>
+                            <th class="tg-0lax">План</th>
+                            <th class="tg-0lax">Тариф</th>
+                            <th class="tg-0lax">Факт</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="tg-s268" rowspan="2">Сервис 1</td>
+                            <td class="tg-s268">01025501000010</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-s268">01025501000011</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-s268" rowspan="2">Сервис 2</td>
+                            <td class="tg-s268">01025501000010</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-s268">01025501000011</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-s268">Сервис 3</td>
+                            <td class="tg-s268">0500180</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-s268">Сервис 4</td>
+                            <td class="tg-s268">000222555588885</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-s268">Сервис 5</td>
+                            <td class="tg-s268">1800</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-s268">Сервис 6</td>
+                            <td class="tg-s268">df888880200dfffe88</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th class="tg-0lax" colspan="2"></th>
+                        <td class="tg-0lax"></td>
+                        <th class="tg-0lax"></th>
+                        <td class="tg-0lax"></td>
+                        <td class="tg-0lax"></td>
+                        <th class="tg-0lax"></th>
+                        <td class="tg-0lax"></td>
+                        <td class="tg-0lax"></td>
+                        <th class="tg-0lax"></th>
+                        <td class="tg-0lax"></td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 
 </body>
 </html>

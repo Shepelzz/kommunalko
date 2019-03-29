@@ -1,80 +1,19 @@
-.login-layout label, .ui-jqdialog-content .searchFilter .queryresult {
-    margin-bottom: 11px
-}
-
-.login-layout {
-    background: none repeat scroll 0 0 #f7f7f7 !important;
-    padding: 5% 0px 0px 0px;
-}
-
-.login-layout .main-container:before {
-    display: none
-}
-
-.login-layout .main-content {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    min-height: 100%;
-    padding-left: 15px;
-    padding-right: 15px
-}
-
-.login-layout
-.widget-box {
-    visibility: hidden;
-    position: fixed;
-    z-index: -5;
-    border-bottom: none;
-    box-shadow: none;
-    padding: 1px;
-    background-color: rgba(180, 185, 193, 0.19);
-    -moz-transform: scale(0, 1) translate(-150px);
-    -webkit-transform: scale(0, 1) translate(-150px);
-    -o-transform: scale(0, 1) translate(-150px);
-    -ms-transform: scale(0, 1) translate(-150px);
-    transform: scale(0, 1) translate(-150px);
-}
-
-.login-layout .widget-box.visible {
-    visibility: visible;
-    position: relative;
-    z-index: auto;
-    -moz-transform: scale(1, 1) translate(0);
-    -webkit-transform: scale(1, 1) translate(0);
-    -o-transform: scale(1, 1) translate(0);
-    -ms-transform: scale(1, 1) translate(0);
-    transform: scale(1, 1) translate(0);
-    transition: transform .3s ease;
-    -moz-transition: -moz-transform .3s ease;
-    -webkit-transition: -webkit-transform .3s ease;
-
-    -moz-box-shadow: 0px 7px 19px -14px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 7px 19px -14px rgba(0, 0, 0, 0.75);
-}
-
-.login-layout .widget-box
-.widget-main {
-    padding: 7px 40px 10px;
-    background: #ffffff;
-}
-
-.login-layout .widget-box .widget-main form {
-    margin: 0
-}
-
-.login-layout .widget-box .widget-body .toolbar > div > a {
-    font-size: 13px;
-    font-weight: 400;
+html,body,h1,h2,h3,h4,h5,footer {font-family: "Open Sans", sans-serif}
+body { position:relative;}
+a {
+    text-decoration:none;
 }
 
 
-.ace-max .main-container:before {
-    background: transparent;
-    border: 0;
-}
 
-.sidebar + .main-content {
-    margin-left: 190px;
-    background-color: rgba(246, 246, 246, 0);
-    padding: 0px 5px 0px 0px;
-}
+
+
+
+
+
+
+
+
+
+
+
